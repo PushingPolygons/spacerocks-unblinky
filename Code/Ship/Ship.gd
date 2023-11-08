@@ -4,8 +4,8 @@ class_name Ship
 const BULLET = preload("res://Bullet/Bullet.tscn")
 const NINTY_DEGREES = 1.5708
 
-var main: Main = null # TODO: Needed?
-var thrust_power: float = 10.0 #??
+var main: Main = null
+var thrust_power: float = 10.0
 var rotation_speed: float = 180 # angle° / sec.
 var velocity: Vector2 # px / sec.
 var ui: UI
@@ -41,5 +41,8 @@ func _process(delta):
 
 func BlowUp():
 	# TODO: Animate an explosion. Particles?
+	if ui.lives <= 0:
+		main.GameOver()
+	
 	queue_free()
 

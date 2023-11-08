@@ -26,6 +26,7 @@ func SpawnShip():
 	if not ship:
 		ship = SHIP.instantiate()
 		ship.ui = self
+		ship.main = main
 		ship.position = get_viewport().size / 2
 		main.ships.add_child(ship)
 		UpdateLives(-1)

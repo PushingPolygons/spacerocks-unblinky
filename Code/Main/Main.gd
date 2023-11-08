@@ -12,22 +12,33 @@ const ROCK = preload("res://Rock/Rock.tscn")
 @onready var message = $MainMenu/VBox/Message
 @onready var play_button = $MainMenu/VBox/PlayButton
 @onready var quit_button = $MainMenu/VBox/QuitButton
+@onready var restart_button = $MainMenu/VBox/RestartButton
 
 
 func _ready():
-	main_menu.show()
+	# Signal Hookups.
 	play_button.pressed.connect(OnPlayPressed)
+	restart_button.pressed.connect(OnRestartPressed)
 	quit_button.pressed.connect(OnQuitPressed)
+	
+	# Initalize Main Menu.
+	main_menu.show()
+	play_button.show()
+	restart_button.hide()
+	quit_button.show()
+	message.text = "Space Rocks!"
 	SpawnRocks(3)
 
 
+func OnRestartPressed():
+	get_tree().reload_current_scene()
 
-#
+
+# TODO: Handle multi-ship games.
 #func _process(delta):
 #	# HACK: Is there a reason to check this every frame?
 #	if ships.get_child_count() <= 0:
-#		# HACK: make a `Game Over` function.
-#		main_menu.show() 
+#		GameOver()
 
 
 func SpawnRocks(count: int):
@@ -40,6 +51,10 @@ func SpawnRocks(count: int):
 
 func GameOver():
 	print("Game Over!")
+	main_menu.show()
+	message.text = "Game Over!"
+	restart_button.show()
+	play_button.hide()
 
 
 func OnPlayPressed():

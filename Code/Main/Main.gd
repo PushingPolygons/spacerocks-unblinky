@@ -30,14 +30,6 @@ func _ready():
 #		main_menu.show() 
 
 
-func Shatter(count: int, position: Vector2):
-	for r in count:
-		var small_rock = ROCK.instantiate()
-		small_rock.position = position
-		small_rock.scale *= 0.5
-		get_parent().add_child(small_rock)
-
-
 func SpawnRocks(count: int):
 	for r in count:
 		var rock = ROCK.instantiate()

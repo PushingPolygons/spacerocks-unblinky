@@ -21,6 +21,14 @@ func _process(delta):
 	rotation_degrees += rotation_speed * delta
 
 
+func Shatter(count: int):
+	for r in count:
+		var small_rock = self.duplicate()
+		small_rock.position = self.position
+		small_rock.scale *= 0.5
+		main.rocks.call_deferred("add_child", small_rock)
+
+
 func OnAreaEntered(other_area):
 	if other_area is Bullet:
 		other_area.ship.ui.UpdateScore(score_value)
@@ -29,6 +37,6 @@ func OnAreaEntered(other_area):
 	
 	if other_area is Ship:
 		other_area.BlowUp()
-		main.Shatter(2, position)
+		Shatter(2)
 		queue_free()
 	

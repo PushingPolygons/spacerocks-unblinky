@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://b43n0f8g2tfgg"]
+[gd_scene load_steps=7 format=3 uid="uid://b43n0f8g2tfgg"]
 
 [ext_resource type="Script" path="res://Main/Main.gd" id="1"]
-[ext_resource type="PackedScene" uid="uid://bhn6biltlwltn" path="res://Rock/Rock.tscn" id="2_n16ha"]
 [ext_resource type="LabelSettings" uid="uid://dp3nq7xvutycx" path="res://UI/assets/label.tres" id="3_3ifmn"]
 [ext_resource type="StyleBox" uid="uid://dq4spl1cx1e3n" path="res://UI/assets/menu_button_normal.tres" id="4_s3a8e"]
 [ext_resource type="StyleBox" uid="uid://be1kyo32r6i31" path="res://UI/assets/menu_button_hover.tres" id="5_15u5i"]
@@ -36,21 +35,6 @@ color = Color(0.0117647, 0.0627451, 0.00784314, 1)
 
 [node name="Rocks" type="Node" parent="."]
 
-[node name="Rock" parent="Rocks" instance=ExtResource("2_n16ha")]
-position = Vector2(100, 362)
-
-[node name="Rock2" parent="Rocks" instance=ExtResource("2_n16ha")]
-position = Vector2(301, 518)
-
-[node name="Rock3" parent="Rocks" instance=ExtResource("2_n16ha")]
-position = Vector2(85, 542)
-
-[node name="Rock4" parent="Rocks" instance=ExtResource("2_n16ha")]
-position = Vector2(332, 447)
-
-[node name="Rock5" parent="Rocks" instance=ExtResource("2_n16ha")]
-position = Vector2(231, 382)
-
 [node name="Bullets" type="Node" parent="."]
 
 [node name="Ships" type="Node" parent="."]
@@ -66,6 +50,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_5key4")
 layout_mode = 2
 
 [node name="MainMenu" type="PanelContainer" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

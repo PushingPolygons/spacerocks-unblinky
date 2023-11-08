@@ -3,6 +3,7 @@ class_name Rock
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
+var main: Main
 var speed: float = randf_range(70, 350)
 var direction: Vector2 = Vector2(randf_range(-1, 1), randf_range(-1, 1))
 var rotation_speed: float = randf_range(-180, 180) # angle.
@@ -25,3 +26,9 @@ func OnAreaEntered(other_area):
 		other_area.ship.ui.UpdateScore(score_value)
 		other_area.queue_free()
 		queue_free()
+	
+	if other_area is Ship:
+		other_area.BlowUp()
+		main.Shatter(2, position)
+		queue_free()
+	

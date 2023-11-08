@@ -23,4 +23,4 @@ position = Vector2(-9.4908e-07, -0.105114)
 rotation = 1.5708
 scale = Vector2(3, 3)
 sprite_frames = ExtResource("1_xexft")
-frame_progress = 0.96701
+autoplay = "default"

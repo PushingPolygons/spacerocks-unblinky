@@ -25,3 +25,6 @@ shape = SubResource("CapsuleShape2D_m1o37")
 [node name="ChangeCourseTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="FireTimer" type="Timer" parent="."]
+autostart = true

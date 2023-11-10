@@ -33,14 +33,19 @@ func Shatter(count: int):
 
 func OnAreaEntered(other_area):
 	if other_area is Bullet:
-		other_area.ship.ui.UpdateScore(score_value)
+		if other_area.ship:
+			other_area.ship.ui.UpdateScore(score_value)
 		other_area.queue_free()
 		Shatter(2)
 		queue_free()
 
-	
 	if other_area is Ship:
 		other_area.BlowUp()
 		Shatter(3)
+		queue_free()
+	
+	if other_area is UFO:
+		other_area.queue_free()
+		Shatter(2)
 		queue_free()
 	

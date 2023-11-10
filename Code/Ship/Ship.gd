@@ -2,7 +2,6 @@ extends ScreenWrapper
 class_name Ship
 
 const BULLET = preload("res://Bullet/Bullet.tscn")
-const NINTY_DEGREES = 1.5708
 
 var main: Main = null
 var thrust_power: float = 10.0
@@ -21,7 +20,7 @@ func _process(delta):
 	
 	# Thrust.
 	if Input.is_action_pressed("thrust"):
-		var direction = Vector2(-cos(rotation + NINTY_DEGREES), sin(rotation - NINTY_DEGREES))
+		var direction = Vector2(-cos(rotation + main.NINTY_DEGREES), sin(rotation - main.NINTY_DEGREES))
 		velocity += direction * thrust_power
 	
 	# Fire.
@@ -29,7 +28,7 @@ func _process(delta):
 		var bullet = BULLET.instantiate()
 		bullet.ship = self
 		bullet.position = position
-		bullet.rotation = rotation - NINTY_DEGREES
+		bullet.rotation = rotation - main.NINTY_DEGREES
 		main.bullets.add_child(bullet)
 	
 	position += velocity * delta

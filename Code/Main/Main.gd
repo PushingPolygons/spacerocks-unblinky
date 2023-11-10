@@ -1,6 +1,7 @@
 extends Node
 class_name Main
 
+const NINTY_DEGREES = 1.5708 # Radians.
 const UI_SCENE = preload("res://UI/UI.tscn")
 const ROCK = preload("res://Rock/Rock.tscn")
 const UFO_SCENE = preload("res://UFO/UFO.tscn")
@@ -22,6 +23,7 @@ var rock_count = 1
 
 func SpawnUFO():
 	var ufo = UFO_SCENE.instantiate()
+	ufo.main = self
 	if randi() % 2:
 		ufo.direction_x = -1
 	else:

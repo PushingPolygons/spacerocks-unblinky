@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0i1cyaaos0es"]
+[gd_scene load_steps=4 format=3 uid="uid://b0i1cyaaos0es"]
+
+[ext_resource type="Script" path="res://UFO/UFO.gd" id="1_qhp2r"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1hnvm"]
 radius = 13.0
@@ -8,7 +10,8 @@ height = 50.0
 radius = 8.0
 height = 28.0
 
-[node name="UFO" type="Node2D"]
+[node name="UFO" type="Area2D"]
+script = ExtResource("1_qhp2r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708
@@ -18,3 +21,7 @@ shape = SubResource("CapsuleShape2D_1hnvm")
 position = Vector2(1, -16)
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_m1o37")
+
+[node name="ChangeCourseTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true

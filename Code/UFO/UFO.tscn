@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0i1cyaaos0es"]
+[gd_scene load_steps=5 format=3 uid="uid://b0i1cyaaos0es"]
 
 [ext_resource type="Script" path="res://UFO/UFO.gd" id="1_qhp2r"]
+[ext_resource type="AudioStream" uid="uid://b5cn0r3g14ydk" path="res://Main/Audio/bg_music.wav" id="2_ag6qf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1hnvm"]
 radius = 13.0
@@ -12,6 +13,12 @@ height = 28.0
 
 [node name="UFO" type="Area2D"]
 script = ExtResource("1_qhp2r")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(1914, -66)
+stream = ExtResource("2_ag6qf")
+volume_db = 2.745
+autoplay = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708

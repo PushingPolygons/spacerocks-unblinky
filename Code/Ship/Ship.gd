@@ -2,6 +2,7 @@ extends ScreenWrapper
 class_name Ship
 
 const BULLET = preload("res://Bullet/Bullet.tscn")
+@onready var particles = $Particles
 
 var main: Main = null
 var thrust_power: float = 10.0
@@ -22,6 +23,10 @@ func _process(delta):
 	if Input.is_action_pressed("thrust"):
 		var direction = Vector2(-cos(rotation + main.NINTY_DEGREES), sin(rotation - main.NINTY_DEGREES))
 		velocity += direction * thrust_power
+		particles.show()
+	
+	if Input.is_action_just_released("thrust"):
+		particles.hide()
 	
 	# Fire.
 	if Input.is_action_just_pressed("fire"):

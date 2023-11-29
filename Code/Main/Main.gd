@@ -6,6 +6,8 @@ const UI_SCENE = preload("res://UI/UI.tscn")
 const ROCK = preload("res://Rock/Rock.tscn")
 const UFO_SCENE = preload("res://UFO/UFO.tscn")
 
+@onready var animation_player = $AnimationPlayer
+
 @onready var rocks = $Rocks
 @onready var bullets = $Bullets
 @onready var ships = $Ships
@@ -80,7 +82,8 @@ func GameOver():
 
 
 func OnPlayPressed():
-	main_menu.hide()
+	animation_player.play("Shrink")
+	#main_menu.hide()
 	SpawnUI()
 
 

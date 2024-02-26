@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Main/Main.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://c43mm7i2htnwf" path="res://Rock/Rock.tscn" id="2_emiof"]
-[ext_resource type="PackedScene" uid="uid://hoedrmupa7h8" path="res://Playar/Playar.tscn" id="2_ttxne"]
+[ext_resource type="PackedScene" uid="uid://djaufws1kejv" path="res://Player/Player.tscn" id="2_jtve5"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1")
@@ -11,7 +11,7 @@ script = ExtResource("1")
 wait_time = 10.0
 autostart = true
 
-[node name="Playar" parent="." instance=ExtResource("2_ttxne")]
+[node name="Player" parent="." instance=ExtResource("2_jtve5")]
 
 [node name="Rock" parent="." instance=ExtResource("2_emiof")]
 position = Vector2(273, 408)

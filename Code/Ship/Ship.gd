@@ -3,7 +3,7 @@ class_name Ship
 
 const BULLET = preload("res://Bullet/Bullet.tscn")
 
-var playar: Playar
+var player: Player
 var thrust_multiplier: float = 15.0
 
 func _process(delta):

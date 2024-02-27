@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://j7ijjq5wggui"]
+
+[ext_resource type="Script" path="res://Bullet/Bullet.gd" id="1_morp1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1616"]
+size = Vector2(74, 20)
+
+[node name="Projectile" type="Area2D"]
+script = ExtResource("1_morp1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-27, 0)
+shape = SubResource("RectangleShape2D_f1616")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

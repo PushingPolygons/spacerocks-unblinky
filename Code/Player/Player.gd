@@ -26,6 +26,7 @@ func _process(delta):
 
 func SpawnShip():
 	var ship = SHIP.instantiate()
+	ship.player = self
 	ship.position = get_viewport().size / 2
 	get_parent().add_child(ship)
 	self.ship = ship

@@ -36,11 +36,14 @@ func Destroy():
 
 func OnAreaEntered(other_area: Area2D):
 	if other_area is Bullet:
-		other_area.ship.playar.UpdateScore(20)
+		if other_area.player:
+			other_area.player.UpdateScore(20)
+		
 		other_area.Destroy()
 		Destroy()
+
 	
 	if other_area is Ship:
 		other_area.Destroy()
-		other_area.playar.UpdateScore(-100) # TODO: Is this fun?
+		other_area.player.UpdateScore(-100) # TODO: Is this fun?
 		Destroy()

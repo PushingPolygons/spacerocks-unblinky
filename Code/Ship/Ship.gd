@@ -1,10 +1,12 @@
 extends ScreenWrapper
 class_name Ship
 
-const BULLET = preload("res://Bullet/Bullet.tscn")
+const BULLET = preload("res://Projectile/Projectile.tscn")
 
 var player: Player
 var thrust_multiplier: float = 15.0
+
+# TODO: Make UFO bullet 
 
 func _process(delta):
 	super._process(delta)
@@ -27,7 +29,7 @@ func _process(delta):
 	# Fire.
 	if Input.is_action_just_pressed("fire"):
 		var bullet = BULLET.instantiate()
-		bullet.ship = self
+		bullet.player = player
 		bullet.position = position
 		bullet.rotation = rotation
 		get_parent().add_child(bullet)

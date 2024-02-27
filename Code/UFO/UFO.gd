@@ -1,7 +1,7 @@
 extends Area2D
 class_name UFO
 
-const BULLET = preload("res://Bullet/Bullet.tscn")
+const BULLET = preload("res://Projectile/Projectile.tscn")
 
 @onready var move_timer = $MoveTimer
 @onready var shot_timer = $ShotTimer
@@ -41,6 +41,7 @@ func OnTimedOut():
 
 func OnShotFired():
 	var bullet = BULLET.instantiate()
+	bullet.player = null
 	bullet.position = position
 	bullet.rotation_degrees = randf_range(-180, 180)
 	get_parent().add_child(bullet)

@@ -8,6 +8,9 @@ var thrust_multiplier: float = 15.0
 
 # TODO: Make UFO bullet 
 
+func _ready():
+	area_entered.connect(OnAreaEntered)
+
 func _process(delta):
 	super._process(delta)
 	
@@ -34,13 +37,18 @@ func _process(delta):
 		bullet.rotation = rotation
 		get_parent().add_child(bullet)
 		#print("Fire!")
-	
-	# Quit.
-	if Input.is_action_just_pressed("quit"):
-		get_tree().quit()
-
 
 func Destroy():
 	queue_free()
 
 
+func OnAreaEntered(other_area: Area2D):
+	if other_area is Bullet:
+		if not other_area.player:
+			other_area.Destroy()
+			Destroy()
+	
+	if other_area is UFO:
+		other_area.queue_free()
+		player.UpdateScore(other_area.point_count)
+		Destroy()

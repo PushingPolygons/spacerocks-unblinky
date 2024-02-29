@@ -24,6 +24,7 @@ func _process(delta):
 			UpdateLives(-1)
 
 
+
 func SpawnShip():
 	var ship = SHIP.instantiate()
 	ship.player = self
@@ -41,7 +42,7 @@ func UpdateLives(delta_lives: int):
 	lives += delta_lives
 	
 	# Delete all children of LivesUI.
-	RemoveChildrenOf(lives_ui)
+	Dev.RemoveChildrenOf(lives_ui)
 	
 	# Repopulate the lives icons.
 	for l in lives:
@@ -51,7 +52,7 @@ func UpdateLives(delta_lives: int):
 	print("Lives: ", lives)
 
 
-func RemoveChildrenOf(node: Node):
-	for n in node.get_children():
-		node.remove_child(n)
-		n.queue_free()
+#func RemoveChildrenOf(node: Node):
+	#for n in node.get_children():
+		#node.remove_child(n)
+		#n.queue_free()

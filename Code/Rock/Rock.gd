@@ -1,13 +1,9 @@
 extends ScreenWrapper
 class_name Rock
 
-# E 0:00:00:0642   set_path: Another resource is loaded from path 'res://Rock/Rock.tscn' (possible cyclic resource inclusion).
-#const ROCK = preload("res://Rock/Rock.tscn")
-
 @onready var sprites = $Sprites
 
-#@export var velocity: Vector2 = Vector2(300, -150) # per / sec.
-var thrust_multiplier = 200
+var thrust_multiplier = 50
 
 
 func _ready():

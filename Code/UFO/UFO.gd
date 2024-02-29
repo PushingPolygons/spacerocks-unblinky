@@ -10,6 +10,7 @@ var speed: float = 80.0 # px / sec.
 
 var x_direction: int
 var y_direction: int
+var point_count: int = 100
 
 
 func _ready():
@@ -30,6 +31,12 @@ func _ready():
 func _process(delta):
 	position.x += speed * x_direction * delta
 	position.y += speed * y_direction * delta
+	
+	if position.x < -100:
+		queue_free()
+	if position.x > get_viewport().size.x + 100:
+		queue_free()
+	
 
 
 func OnTimedOut():
